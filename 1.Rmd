@@ -1,0 +1,28 @@
+---
+title: "snaked system"
+output: html_notebook
+---
+
+```{r setup}
+library(readxl)
+Book1 <- read_excel("Book1.xlsx", range = "b13:b26", col_names = FALSE)
+df = data.frame(Book1)
+```
+
+## assumption
+H0: mean = 6.4  
+H1: mean < 6.4  
+significant level: 5%  
+
+```{r}
+t.test(
+  df,
+  alternative="less",
+  mu=6.4
+)
+```
+T test shows true mean is less than 6.4  
+P value (0.02158) is less than 5%.  H0 is rejected.  
+
+## conclusion
+The average under new system is less than previous waiting system.
